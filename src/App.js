@@ -1,12 +1,11 @@
-import Button from '@mui/material/Button';
+import MainRoutes from "main.routes";
 
 function App() {
   return (
     <>
-      <Button variant="contained" color='primary'>Hello world</Button>
-      <Button variant="contained" color='secondary'>Hello girl</Button>
+      <MainRoutes />
     </>
   );
-} 
+}
 
 export default App;
