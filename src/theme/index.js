@@ -1,18 +1,23 @@
-import { createTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
+import { createTheme } from "@material-ui/core/styles";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: purple[500],
+      main: "#0c52df",
+      contrastText: "#fff"
     },
     secondary: {
-      main: green[500],
-    },
+      main: "#32CD32"
+    }
   },
-  shape:{
-      borderRadius: 0
+  shape: {
+    borderRadius: 0
+  },
+  props: {
+    MuiButton: {
+      variant: "contained",
+      color: "primary"
+    }
   }
 });
 
