@@ -5,13 +5,13 @@ import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu";
 import useStyles from "./HeaderStyle";
 
-const HeaderView = () => {
+const HeaderView = ({ handleToggleSidebar }) => {
   const classes = useStyles();
 
   return (
     <AppBar className={classes.root}>
       <Toolbar>
-        <IconButton edge="start" className={classes.menuButton} color="inherit">
+        <IconButton edge="start" className={classes.menuButton} color="inherit" onClick={handleToggleSidebar}>
           <MenuIcon />
         </IconButton>
 
