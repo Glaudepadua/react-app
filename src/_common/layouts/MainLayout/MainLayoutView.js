@@ -2,8 +2,8 @@ import Header from "./Header";
 import useStyles from "./MainLayoutStyle";
 import Sidebar from "./Sidebar";
 
-const MainLayoutView = ({ children }) => {
-  const classes = useStyles();
+const MainLayoutView = ({ children, sidebarOpen }) => {
+  const classes = useStyles({ sidebarOpen });
 
   return (
     <>
