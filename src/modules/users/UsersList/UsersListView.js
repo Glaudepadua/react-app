@@ -5,7 +5,7 @@ import UsersListTable from "./UsersListTable";
 
 const UsersListView = () => {
   const newButton = <Button>New</Button>;
-  
+
   return (
     <>
       <PageHeader title="Users" actionButton={newButton} />

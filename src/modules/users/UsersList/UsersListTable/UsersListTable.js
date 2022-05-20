@@ -4,8 +4,7 @@ import { UsersListContext } from "../context/UsersListContext";
 import UsersListTableView from "./UsersListTableView";
 
 const UsersListTable = () => {
-  const { setUsers } = useContext(UsersListContext);
-
+  const { users, setUsers, filter } = useContext(UsersListContext);
   const [filteredUsers, setFilteredUsers] = useState(null);
 
   useEffect(() => {
@@ -19,6 +18,16 @@ const UsersListTable = () => {
 
     fetchUsers();
   }, [setUsers]);
+
+  useEffect(() => {
+    if (users) {
+      const result = users.filter(
+        (user) => user.name.toLowerCase().includes(filter.toLowerCase()) || user.email.toLowerCase().includes(filter.toLowerCase())
+      );
+
+      setFilteredUsers(result);
+    }
+  }, [filter, users]);
 
   return <UsersListTableView users={filteredUsers} />;
 };

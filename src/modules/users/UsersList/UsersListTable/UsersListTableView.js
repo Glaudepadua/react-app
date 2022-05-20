@@ -6,6 +6,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import EmptyBox from "_common/lotties/EmptyBox";
+import LoadingSpinner from "_common/lotties/LoadingSpinner";
 import useStyles from "./UsersListTableStyle";
 
 const UsersListTableView = ({ users }) => {
@@ -37,6 +38,8 @@ const UsersListTableView = ({ users }) => {
         </Table>
       </TableContainer>
       {!users && <EmptyBox />}
+      {users && users.length && <LoadingSpinner />}
+      {users && !users.length && <EmptyBox />}
     </>
   );
 };
