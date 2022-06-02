@@ -37,8 +37,7 @@ const UsersListTableView = ({ users }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      {!users && <EmptyBox />}
-      {users && users.length && <LoadingSpinner />}
+      {!users && <LoadingSpinner />}
       {users && !users.length && <EmptyBox />}
     </>
   );

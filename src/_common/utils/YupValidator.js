@@ -4,24 +4,24 @@ import * as Yup from "yup";
 
 Yup.setLocale({
   mixed: {
-    required: "Este campo é obrigatório. pt-BR"
+    required: "This field is required."
   },
 
   string: {
-    min: "Tamanho mínimo: ${min} caracteres.",
-    max: "Tamanho máximo: ${max} caracteres.",
-    email: "Informe um e-mail válido. pt-BR"
+    min: "Minimum size: ${min} characters.",
+    max: "Maximum size: ${max} characters.",
+    email: "Provide a valid email."
   },
 
   array: {
-    min: "É preciso selecionar no mínimo ${min}.",
-    max: "É preciso selecionar no máximo ${max}."
+    min: "You must select at least ${min}.",
+    max: "You must select at most ${max}."
   },
 
   number: {
-    max: "O valor não pode ser maior que ${max}.",
-    min: "O valor não pode ser menor que ${min}.",
-    integer: "O valor deve ser inteiro. pt-BR"
+    max: "The value cannot be greater than ${max}.",
+    min: "The value cannot be less than ${min}.",
+    integer: "The value must be integer."
   }
 });
 
