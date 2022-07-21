@@ -6,10 +6,14 @@ const getAll = () => {
   return api.get(BASE_PATH);
 };
 
-const post = (values) => {
-  return api.post(BASE_PATH, values);
+const create = (user) => {
+  return api.post(BASE_PATH, user);
 };
 
-const UserService = { getAll, post };
+const update = (user) => {
+  return api.put(`${BASE_PATH}/${user._id}`, user);
+}
+
+const UserService = { getAll, post: create, put: update };
 
 export default UserService;

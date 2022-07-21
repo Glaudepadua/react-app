@@ -1,3 +1,4 @@
+import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -8,8 +9,9 @@ import TableRow from "@material-ui/core/TableRow";
 import EmptyBox from "_common/lotties/EmptyBox";
 import LoadingSpinner from "_common/lotties/LoadingSpinner";
 import useStyles from "./UsersListTableStyle";
+import EditIcon from "@material-ui/icons/Edit";
 
-const UsersListTableView = ({ users }) => {
+const UsersListTableView = ({ users, handleEdit }) => {
   const classes = useStyles();
 
   return (
@@ -20,7 +22,9 @@ const UsersListTableView = ({ users }) => {
             <TableRow>
               <TableCell>Name</TableCell>
               <TableCell>E-mail</TableCell>
-              <TableCell width="150px" align="center">Actions</TableCell>
+              <TableCell width="150px" align="center">
+                Actions
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -29,8 +33,10 @@ const UsersListTableView = ({ users }) => {
                 <TableRow key={user._id} hover>
                   <TableCell>{user.name}</TableCell>
                   <TableCell>{user.email}</TableCell>
-                  <TableCell align="right">
-                    <></>
+                  <TableCell padding="none" align="right">
+                    <IconButton onClick={() => handleEdit(user)}>
+                      <EditIcon />
+                    </IconButton>
                   </TableCell>
                 </TableRow>
               ))}
