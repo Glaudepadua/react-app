@@ -14,6 +14,10 @@ const update = (user) => {
   return api.put(`${BASE_PATH}/${user._id}`, user);
 }
 
-const UserService = { getAll, post: create, put: update };
+const remove = (userId) => {
+  return api.delete(`${BASE_PATH}/${userId}`);
+}
+
+const UserService = { getAll, post: create, put: update, remove };
 
 export default UserService;
