@@ -19,7 +19,7 @@ const UsersListTableView = ({ users, handleEdit, userDelete, setUserDelete, hand
   return (
     <>
       <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="a dense table">
+        <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
