@@ -6,7 +6,7 @@ const TasksRoutes = ({ match: { url } }) => {
   return (
     <Switch>
       <TasksListContextProvider>
-      <Route path={`${url}/:status?`} component={TasksList} />
+        <Route path={`${url}/:status?`} component={TasksList} />
       </TasksListContextProvider>
     </Switch>
   );
