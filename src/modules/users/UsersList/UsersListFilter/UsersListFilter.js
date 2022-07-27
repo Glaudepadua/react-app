@@ -7,7 +7,6 @@ const UsersListFilter = () => {
   const { setFilter } = useContext(UsersListContext);
 
   const [searchTerm, setSearchTerm] = useState("");
-
   const debouncedSearchTerm = useDebounce(searchTerm);
 
   const handlerChangeSearchTerm = (event) => setSearchTerm(event.target.value);
