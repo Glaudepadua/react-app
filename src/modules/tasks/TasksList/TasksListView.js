@@ -1,5 +1,6 @@
 import Button from "@material-ui/core/Button";
 import PageHeader from "_common/components/PageHeader";
+import TaskDialog from "./TaskDialog";
 import TasksListFilter from "./TasksListFilter";
 import TasksListTable from "./TasksListTable";
 
@@ -11,6 +12,7 @@ const TasksListView = () => {
       <PageHeader title="Tasks" actionButton={newButton} />
       <TasksListFilter />
       <TasksListTable />
+      <TaskDialog />
     </>
   );
 };
