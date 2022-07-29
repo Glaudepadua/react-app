@@ -14,9 +14,14 @@ const getResponsible = () => {
   return UserService.getAll();
 };
 
+const post = task => {
+  return api.post(`${BASE_PATH}`, task);
+}
+
 const TaskService = {
   getByStatus,
-  getResponsible
+  getResponsible,
+  post
 };
 
 export default TaskService;

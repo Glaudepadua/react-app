@@ -4,15 +4,15 @@ import TaskDialog from "./TaskDialog";
 import TasksListFilter from "./TasksListFilter";
 import TasksListTable from "./TasksListTable";
 
-const TasksListView = () => {
-  const newButton = <Button>New</Button>;
+const TasksListView = ({ taskDialog, handleNew }) => {
+  const newButton = <Button onClick={handleNew}>New</Button>;
 
   return (
     <>
       <PageHeader title="Tasks" actionButton={newButton} />
       <TasksListFilter />
       <TasksListTable />
-      <TaskDialog />
+      {taskDialog.open && <TaskDialog />}
     </>
   );
 };

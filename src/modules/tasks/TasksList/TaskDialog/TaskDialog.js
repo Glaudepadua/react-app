@@ -1,11 +1,15 @@
 import { useFormik } from "formik";
 import TaskService from "modules/tasks/services/task.service";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LOGGED_USER_ID, TASK_STATUS } from "_common/constants/common.constants";
+import useSnackbar from "_common/hooks/useSnackbar";
 import Yup from "_common/utils/YupValidator";
+import { TasksListContext } from "../context/TaskListContext";
 import TaskDialogView from "./TaskDialogView";
 
 const TaskDialog = () => {
+  const { setTasks, setTaskDialog } = useContext(TasksListContext);
+  const { snackbarSuccess } = useSnackbar();
   const [responsibles, setResponsibles] = useState([]);
 
   useEffect(() => {
@@ -32,7 +36,21 @@ const TaskDialog = () => {
     responsible: LOGGED_USER_ID
   };
 
-  const onSubmit = () => {};
+  const onSubmit = async (values, { setSubmitting }) => {
+    try {
+      const {
+        data: { body }
+      } = await TaskService.post(values);
+
+      setTasks((prevTasks) => [...prevTasks, body]);
+
+      snackbarSuccess();
+      handleOnClose();
+    } catch (error) {
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const form = useFormik({
     validationSchema,
@@ -40,7 +58,9 @@ const TaskDialog = () => {
     onSubmit
   });
 
-  return <TaskDialogView {...{ form, responsibles }} />;
+  const handleOnClose = () => setTaskDialog({ open: false });
+
+  return <TaskDialogView {...{ form, responsibles, handleOnClose }} />;
 };
 
 export default TaskDialog;
